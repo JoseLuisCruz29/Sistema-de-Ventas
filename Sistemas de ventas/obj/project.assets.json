@@ -4240,11 +4240,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
+      "projectUniqueName": "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
       "projectName": "Sistemas de ventas",
-      "projectPath": "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
+      "projectPath": "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
       "packagesPath": "C:\\Users\\moran\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\obj\\",
+      "outputPath": "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\moran\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -16,9 +16,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mi API con JWT", Version = "v1" });
-
-    // Configuración para agregar el token JWT en Swagger
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "My API",
+        Version = "v1"
+    });
+    c.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "My API",
+        Version = "v2"
+    });
+    // Configuración para token JWT
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -26,7 +34,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Introduzca 'Bearer' [espacio] seguido de su token JWT."
+        Description = "Introduzca 'Bearer' seguido de su token JWT."
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -44,6 +52,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -91,11 +100,14 @@ string GenerateJwtToken()
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
+    c.SwaggerEndpoint("/swagger/v2/swagger.json", "V2");
+    c.SwaggerEndpoint("/swagger/v3/swagger.json", "V3");
+});
 
 app.UseHttpsRedirection();
 
@@ -116,15 +128,12 @@ app.MapPost("/login", async (AppDbContext dbContext, UserLogin user) =>
 
     return Results.Unauthorized();
 });
+
 var orderDetails = new List<OrderDetail>();
-
 var invoices = new List<Invoice>();
-
 //CRUD Sencillo de Empleados
 app.MapGet("/Employees", async (AppDbContext dbContext) =>
-{
-    await dbContext.Employees.ToListAsync();
-}).RequireAuthorization();
+    await dbContext.Employees.ToListAsync()).RequireAuthorization();
 app.MapGet("/Employees/{id}", async (AppDbContext dbContext, int id) =>
 {
     var employee = await dbContext.Employees.FindAsync(id);
@@ -162,9 +171,7 @@ app.MapDelete("/Employee/{id}", async (AppDbContext dbContext, int id) =>
 }).RequireAuthorization();
 //CRUD Sencillo de Compañia
 app.MapGet("/Companies", async (AppDbContext dbContext) =>
-{
-    await dbContext.Companies.ToListAsync();
-}).RequireAuthorization();
+    await dbContext.Companies.ToListAsync()).RequireAuthorization();
 app.MapGet("/Companies/{id}", async (AppDbContext dbContext, int id) =>
 {
     var Company = await dbContext.Companies.FindAsync(id);
@@ -203,20 +210,17 @@ app.MapDelete("/Companies/{id}", async (AppDbContext dbContext, int id) =>
 // --- CRUD de Artículos ---
 app.MapGet("/articles", async (AppDbContext dbContext) =>
     await dbContext.Articles.ToListAsync()).RequireAuthorization();
-
 app.MapGet("/articles/{id}", async (AppDbContext dbContext, int id) =>
 {
     var article = await dbContext.Articles.FindAsync(id);
     return article != null ? Results.Ok(article) : Results.NotFound();
 }).RequireAuthorization();
-
 app.MapPost("/articles", async (AppDbContext dbContext, Article newArticle) =>
 {
     dbContext.Articles.Add(newArticle);
     await dbContext.SaveChangesAsync();
     return Results.Created($"/articles/{newArticle.Id}", newArticle);
 }).RequireAuthorization();
-
 app.MapPut("/articles/{id}", async (AppDbContext dbContext, int id, Article updatedArticle) =>
 {
     var article = await dbContext.Articles.FindAsync(id);
@@ -228,7 +232,6 @@ app.MapPut("/articles/{id}", async (AppDbContext dbContext, int id, Article upda
     await dbContext.SaveChangesAsync();
     return Results.NoContent();
 }).RequireAuthorization();
-
 app.MapDelete("/articles/{id}", async (AppDbContext dbContext, int id) =>
 {
     var article = await dbContext.Articles.FirstOrDefaultAsync(a => a.Id == id);
@@ -238,17 +241,14 @@ app.MapDelete("/articles/{id}", async (AppDbContext dbContext, int id) =>
     await dbContext.SaveChangesAsync();
     return Results.NoContent();
 }).RequireAuthorization();
-
 // --- CRUD de Órdenes ---
 app.MapGet("/orders", async (AppDbContext dbContext) =>
     await dbContext.Orders.ToListAsync()).RequireAuthorization();
-
 app.MapGet("/orders/{id}", async (AppDbContext dbContext, int id) =>
 {
     var order = await dbContext.Orders.FindAsync(id);
     return order != null ? Results.Ok(order) : Results.NotFound();
 }).RequireAuthorization();
-
 app.MapPost("/orders", async (AppDbContext dbContext, Order newOrder) =>
 {
     dbContext.Orders.Add(newOrder);
