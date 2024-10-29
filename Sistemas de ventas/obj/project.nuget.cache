@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jpIEg3mS7ac=",
+  "dgSpecHash": "7kCQAVxNUUQ=",
   "success": true,
-  "projectFilePath": "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
+  "projectFilePath": "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moran\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\moran\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

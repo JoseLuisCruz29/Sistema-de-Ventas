@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj": {}
+    "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj": {}
   },
   "projects": {
-    "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj": {
+    "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
+        "projectUniqueName": "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
         "projectName": "Sistemas de ventas",
-        "projectPath": "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
+        "projectPath": "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\Sistemas de ventas.csproj",
         "packagesPath": "C:\\Users\\moran\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\obj\\",
+        "outputPath": "C:\\Users\\moran\\OneDrive\\Documentos\\C#\\Sistemas de ventas\\Sistema-de-Ventas\\Sistemas de ventas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\moran\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -297,7 +297,7 @@ app.MapPost("/orders/{orderId}/addArticle/{articleId}", async (AppDbContext dbCo
 
     var orderDetail = new OrderDetail
     {
-        Id = orderDetails.Any() ? orderDetails.Max(od => od.Id) + 1 : 1,
+
         OrderId = order.Id,
         ArticleId = article.Id
     };
@@ -322,9 +322,8 @@ app.MapPut("/orders/{orderId}/complete", async (AppDbContext dbContext, int orde
 
     var invoice = new Invoice
     {
-        Id = invoices.Any() ? invoices.Max(i => i.Id) + 1 : 1,
         OrderId = order.Id,
-        Status = "Pending",
+        Status = "Completed",
         DeliveryDate = DateTime.Now.AddDays(7) // Fecha estimada de entrega
     };
     await dbContext.Invoices.AddAsync(invoice);
